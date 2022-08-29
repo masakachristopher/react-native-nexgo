@@ -9,11 +9,12 @@ npm install react-native-nexgo
 ## Usage
 
 ```js
-import { multiply } from "react-native-nexgo";
+import { printReceipt } from "react-native-nexgo";
 
 // ...
 
-const result = await multiply(3, 7);
+const result = await printReceipt("Thirdparty Only","David Banda","TIGO","255716209035","320,000")
+
 ```
 
 ## Contributing

@@ -8,9 +8,12 @@ buildscript {
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:3.5.3'
+//     classpath 'com.android.tools.build:gradle:3.5.3'
+    classpath "com.android.tools.build:gradle:7.0.4"
+    // classpath 'com.android.tools.build:gradle:3.6.4'
     // noinspection DifferentKotlinGradleVersion
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10'
   }
 }
 
@@ -130,10 +133,22 @@ repositories {
 def kotlin_version = getExtOrDefault('kotlinVersion')
 
 dependencies {
+  implementation fileTree(include: ['*.jar', 'aar'], dir: 'libs')
+  // api fileTree(dir: 'libs', include: ['*.aar'])
+
     //noinspection GradleDynamicVersion
   implementation "com.facebook.react:react-native:+"
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+ implementation files('libs/nexgo-sdk-v303.aar');
+  // api(name:'nexgo-sdk-v303', ext:'aar')
+  // releaseImplementation files('libs/nexgo-sdk-v303.aar')
 // From node_modules
+
+// From libs folder
+  // implementation project('libs/nexgo-sdk-v303.aar')
+  // api(name:'nexgo-sdk-v303', ext:'aar')
+  // api project('nexgo')
+
 }
 
 if (isNewArchitectureEnabled()) {

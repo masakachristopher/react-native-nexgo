@@ -18,3 +18,13 @@ const Nexgo = NativeModules.Nexgo  ? NativeModules.Nexgo  : new Proxy(
 export function multiply(a: number, b: number): Promise<number> {
   return Nexgo.multiply(a, b);
 }
+
+export function printReceipt(
+  coverName: string,
+  insuredName: string,
+  paymentMethod: string,
+  paymentAccount: string,
+  amount: string
+):Promise<any> {
+  return Nexgo.printReceipt(coverName,insuredName, paymentMethod, paymentAccount, amount);
+}
